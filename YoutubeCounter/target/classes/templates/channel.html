@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Channel Info</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="center">
+        <img th:src="${channel.img}">
+        <h3 th:text="${channel.name}"></h3>
+        <p th:text="${channel.description}"></p>
+        <hr>
+        <h1 id="subs" th:text="'Subscribers: ' + ${subs}"></h1>
+    </div>
+</body>
+</html>

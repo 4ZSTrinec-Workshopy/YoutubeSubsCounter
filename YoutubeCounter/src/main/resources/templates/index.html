@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Youtube Counter</title>
+
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <h1>Search for a youtube channel</h1>
+
+    <form action="/" method="post">
+        <input type="text" name="channel" placeholder="Youtube Channel">
+        <button type="submit">Find</button>
+    </form>
+    <div class="center" th:each="channel : ${channels}">
+        <img th:src="${channel.img}">
+        <h3 th:text="${channel.name}"></h3>
+        <p th:text="${channel.description}"></p>
+        <input type="button" value="Open" th:onclick="'window.location.href=\'' + @{/channel?id={id}&name={name}&desc={description}&img={img}(id=${channel.id},name=${channel.name}, description=${channel.description}, img=${channel.img})} + '\''">
+    </div>
+</body>
+</html>
